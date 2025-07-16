@@ -11,11 +11,13 @@ def sanitize_filename(name):
 
 def record_audio(duration_sec=30):
     fs = 44100
+    channels = 1  # mono
+    dtype = 'int16'  # për madhësi minimale të file-it
     recordings_dir = "recordings"
     os.makedirs(recordings_dir, exist_ok=True)
 
     print(f"[INFO] Filloi regjistrimi për {duration_sec} sekonda...")
-    audio_data = sd.rec(int(duration_sec * fs), samplerate=fs, channels=2)
+    audio_data = sd.rec(int(duration_sec * fs), samplerate=fs, channels=channels, dtype=dtype)
     sd.wait()
     print(f"[INFO] Regjistrimi përfundoi.")
 
