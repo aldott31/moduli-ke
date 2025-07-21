@@ -4,7 +4,7 @@ import whisper
 
 def transcribe_audio(file_path):
     model = whisper.load_model("base")  # ose "tiny", "medium", "large"
-    result = model.transcribe(file_path)
+    result = model.transcribe(file_path, language="sq")
     print(f"[TRANSKRIPT për {file_path}]:\n", result["text"])
 
     # Ruaj transcript në .txt me të njëjtin emër
